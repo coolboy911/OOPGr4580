@@ -1,11 +1,13 @@
 package Classes;
 
 import Interfaces.iActorBehaviuor;
+import Interfaces.iReturnOrder;
 
-public class TaxService implements iActorBehaviuor {
+public class TaxService implements iActorBehaviuor, iReturnOrder {
     private String name;
     private boolean isTakeOrder;
     private boolean isMakeOrder;
+    private boolean isProductWarrantyCase;
 
     public TaxService() {
         this.name = "Tax audit";
@@ -38,5 +40,32 @@ public class TaxService implements iActorBehaviuor {
     @Override
     public Actor getActor() {
         return new OrdinaryClient(name);
+    }
+
+    @Override
+    public boolean isProductWarrantyCase() {
+        return isProductWarrantyCase();
+    }
+
+    @Override
+    public void setWarrantyCase(boolean setWarranty) {
+        this.isProductWarrantyCase = setWarranty;
+    }
+
+    @Override
+    public void returnProduct() {
+        System.out.println(name + " хочет вернуть товар");
+        if (isProductWarrantyCase){
+            System.out.println("Товар подлежит гарантии");
+            getMoneyBack();
+        }
+        else {
+            System.out.println("Товар Возврату не подлежит");
+        }
+    }
+
+    @Override
+    public void getMoneyBack() {
+        System.out.println("Денежные средства за товар возвращены");
     }
 }

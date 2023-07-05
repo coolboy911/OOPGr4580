@@ -1,10 +1,24 @@
 package Classes;
 
-public class SpecialClient extends Actor{
-    private int idVip;
-    public SpecialClient(String name, Integer id) {
-        super(name);
-        idVip = id;
+public class PromotionalClient extends Actor {
+    
+    private String promotionName;
+    private int clientID;
+    static int promotionMemberCount;
+
+    static {
+        promotionMemberCount = 0;
+    }
+    
+    public PromotionalClient(String name, String promotionName, int clientID) {
+        super(name+" - акционный клиент");
+        this.promotionName = promotionName;
+        this.clientID = clientID;
+        ++promotionMemberCount;
+    }
+
+    public static int getPromotionMemberCount(){
+        return promotionMemberCount;
     }
 
     @Override
@@ -58,13 +72,5 @@ public class SpecialClient extends Actor{
     public void getMoneyBack() {
         System.out.println("Денежные средства за товар возвращены");
     }
-
-    // @Override
-    // public String getName() {
-    //     return name;
-    // }
-
-    // public int getIdVip() {
-    //     return idVip;
-    // }
+    
 }
