@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.List;
 
 import Controllers.EmploeeController;
+import Domen.AverageAge;
 import Domen.Emploee;
 import Domen.Person;
 import Domen.PersonComparator;
@@ -79,7 +80,7 @@ public class App {
         //#endregion
 
         // следующий семинар
-        Student s1 = new Student("Иван", 25, 121);
+        Student s1 = new Student("Иван", 24, 121);
         Student s2 = new Student("Игорь", 23, 301);
 
         PersonComparator<Student> comS = new PersonComparator<Student>();
@@ -98,9 +99,15 @@ public class App {
         Emploee e1 = new Emploee("Федорович", 60, "разнорабочим");
         //EmploeeController empControll = new EmploeeController();
         EmploeeController.paySalary(e1);
-        // EmploeeController.paySalary(s1);
+        //EmploeeController.paySalary(s1);
         //empControll.paySalary(e1);
         //empControll.paySalary(s1);
 
+        // Начало Домашнего Задания
+        List<Student> listStud4 = new ArrayList<>(Arrays.asList(s1, s2));
+        System.out.println(AverageAge.mean(listStud4));
+
+        List<Teacher> listTeachers = new ArrayList<>(Arrays.asList(t1, t2));
+        System.out.println(AverageAge.mean(listTeachers));
     }
 }
