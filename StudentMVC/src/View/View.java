@@ -7,7 +7,8 @@ import Controller.iGetView;
 import Model.Student;
 
 public class View implements iGetView {
-
+    
+    @Override
     public void printAllStudents(List<Student> students)
     {
         System.out.println("------список студентов--------");
@@ -16,12 +17,6 @@ public class View implements iGetView {
             System.out.println(stud);
         }
         System.out.println("===============================");
-    }
-
-    @Override
-    public void printAllStudent(List<Student> students) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'printAllStudent'");
     }
 
     @Override
@@ -35,12 +30,6 @@ public class View implements iGetView {
     public Long getStudentIdToDelete() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getStudentIdToDelete'");
-    }
-
-    @Override
-    public void displayStudents(List<Student> students) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'displayStudents'");
     }
 
     @Override

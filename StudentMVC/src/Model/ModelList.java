@@ -15,4 +15,13 @@ public class ModelList implements iGetModel {
     {
         return students;
     }
+
+    @Override
+    public void removeStudent(int id) {
+        for (int i = 0; i < students.size(); i++) {
+            if (students.get(i).getId() == id) {
+                students.remove(i--);  // i-- потому что элементы свдинуться влево, и чтобы не перескочить
+            }
+        }
+    }
 }

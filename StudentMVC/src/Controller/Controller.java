@@ -2,6 +2,7 @@ package Controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import Model.ModelList;
 import Model.Student;
@@ -20,14 +21,7 @@ public class Controller {
 
     private boolean testData(List<Student> students)
     {
-        if(students.size()>0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return students.size()>0;
     }
 
     public void update()
@@ -63,6 +57,17 @@ public class Controller {
                     break;
                 case LIST:
                     view.printAllStudents(model.getAllStudents());
+                    break;
+                case DELETE:
+                    Scanner iScanner = new Scanner(System.in);
+                    System.out.printf("Введите номер студента, которого хотите удалить:");
+                    if (iScanner.hasNextInt()) {
+                        int studNum = iScanner.nextInt();
+                        model.removeStudent(studNum);
+                    }
+                    else {
+                        System.out.println("Вы ввели не цифру, выход в главное меню");
+                    }
                     break;
             }
 
